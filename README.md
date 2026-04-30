@@ -78,7 +78,7 @@ plt.show()
 
 ## Método del codo
 El método del codo permitió identificar el número óptimo de clusters para el modelo. Se observa un punto donde la disminución de la inercia comienza a estabilizarse, indicando que agregar más clusters no aporta mejoras significativas. En este caso, se seleccionó un valor adecuado de clusters para lograr una segmentación eficiente sin sobreajuste.
-![Método del Codo](images/ElbowMethod.png)
+![Método del Codo](images/Elbow Method.png)
 ## Segmentación de clientes
 La gráfica de clusters muestra la distribución de los clientes en distintos grupos, donde cada color representa un segmento diferente. Esto permite visualizar cómo se agrupan los clientes según sus características.
 ![Clusters](images/Clusters.png)
