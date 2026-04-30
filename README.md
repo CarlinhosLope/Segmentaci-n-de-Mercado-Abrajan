@@ -46,16 +46,16 @@ O usando requirements.txt: pip install -r requirements.txt
 5. Ejecutar las celdas en orden  
 
 ## Parámetros Modificables
-- n_clusters: número de segmentos generados  
-- Variables seleccionadas: columnas utilizadas en el modelo  
-- Escalado: normalización de datos  
-- PCA: reducción de dimensionalidad  
+- n_clusters: define cuántos grupos se generan. Un valor incorrecto puede generar segmentos poco útiles o sobreajuste.
+- Variables seleccionadas: determinan el criterio de segmentación. Cambiar variables cambia completamente los resultados.
+- Escalado: evita que variables con mayor magnitud dominen el modelo.
+- PCA: reduce dimensiones y facilita visualización, pero puede perder información.
 
 Ejemplo: kmeans = KMeans(n_clusters=5, random_state=42)
 
 ## Ejemplos de Uso
 
-Aplicación de K-Means: 
+Aplicación de K-Means: Este código entrena el modelo K-Means con 5 clusters:
 from sklearn.cluster import KMeans
 
 kmeans = KMeans(n_clusters=5)
@@ -74,13 +74,38 @@ plt.scatter(X_pca[:,0], X_pca[:,1], c=labels)
 plt.title("Segmentación de Clientes")
 plt.show()
 
-## Resultados
+### Resultados
 
-Método del codo:
-![Elbow Method](images/elbow_method.png)
+## Método del codo
+El método del codo permitió identificar el número óptimo de clusters para el modelo. Se observa un punto donde la disminución de la inercia comienza a estabilizarse, indicando que agregar más clusters no aporta mejoras significativas. En este caso, se seleccionó un valor adecuado de clusters para lograr una segmentación eficiente sin sobreajuste.
+![Método del Codo](imágenes/ElbowMethod.png)
+## Segmentación de clientes
+La gráfica de clusters muestra la distribución de los clientes en distintos grupos, donde cada color representa un segmento diferente. Esto permite visualizar cómo se agrupan los clientes según sus características.
+![Clusters](imágenes/Clusters.png)
+Segmentación por Spendig Core:
+![Segmentación](SegmentacióndeMercadoSpendigScore.png)
+Métricas de Validación:
+![Validación del Modelo K-Means](imágenes/MétricasdeValidación.png)
 
-Segmentación:
-![Clusters](images/clusters.png)
+## Análisis de segmentos
+
+A partir del modelo de K-Means, se identificaron distintos perfiles de clientes:
+
+- **Cluster 1:** Clientes con alto ingreso y alto nivel de consumo. Representan un segmento estratégico para programas de fidelización.
+- **Cluster 2:** Clientes con ingreso medio y consumo frecuente. Son ideales para promociones regulares.
+- **Cluster 3:** Clientes con bajo ingreso y bajo consumo. Representan un segmento sensible al precio.
+- **Cluster 4:** Clientes con alto ingreso pero bajo consumo. Oportunidad para incentivar compras.
+- **Cluster 5:** Clientes con comportamiento intermedio. Segmento mixto con potencial de crecimiento.
+
+---
+
+### Datos procesados
+Se realizó una limpieza y transformación de los datos para asegurar la calidad del análisis, incluyendo selección de variables relevantes y normalización.
+
+
+### Conclusión
+El modelo de segmentación permite identificar patrones de comportamiento en los clientes, facilitando la toma de decisiones estratégicas basadas en datos. La correcta selección de variables y parámetros es fundamental para obtener resultados útiles en un contexto empresarial real.
+
 
 ## Interpretación de Resultados
 El modelo identifica diferentes perfiles de clientes, como clientes de alto valor, frecuentes, ocasionales y de bajo consumo.
@@ -92,3 +117,7 @@ El modelo identifica diferentes perfiles de clientes, como clientes de alto valo
 - Matplotlib
 - Seaborn
 - Scikit-learn
+
+## Conclusión
+
+El modelo de segmentación permite identificar patrones de comportamiento en los clientes, facilitando la toma de decisiones estratégicas basadas en datos. La correcta selección de variables y parámetros es clave para obtener resultados útiles en un contexto empresarial.
