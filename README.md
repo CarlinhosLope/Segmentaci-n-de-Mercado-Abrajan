@@ -18,6 +18,18 @@ Un centro comercial con más de 200,000 registros de clientes necesita optimizar
 6. Búsqueda de clientes por ID
 
 ## Estructura del Proyecto
+Segmentacion-de-Mercado-Abrajan/
+│
+├── data/
+│ └── mall_customers_200k.csv
+│
+├── images/
+│ ├── elbow_method.png
+│ ├── clusters.png
+│
+├── Segmentación.ipynb
+├── requirements.txt
+└── README.md
 ## Requisitos
 - Python 3.8 o superior
 - Jupyter Notebook o Google Colab
