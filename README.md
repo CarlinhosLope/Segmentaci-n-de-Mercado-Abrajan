@@ -78,14 +78,14 @@ plt.show()
 
 ## Método del codo
 El método del codo permitió identificar el número óptimo de clusters para el modelo. Se observa un punto donde la disminución de la inercia comienza a estabilizarse, indicando que agregar más clusters no aporta mejoras significativas. En este caso, se seleccionó un valor adecuado de clusters para lograr una segmentación eficiente sin sobreajuste.
-![Método del Codo](imágenes/ElbowMethod.png)
+![Método del Codo](images/ElbowMethod.png)
 ## Segmentación de clientes
 La gráfica de clusters muestra la distribución de los clientes en distintos grupos, donde cada color representa un segmento diferente. Esto permite visualizar cómo se agrupan los clientes según sus características.
-![Clusters](imágenes/Clusters.png)
+![Clusters](images/Clusters.png)
 Segmentación por Spendig Core:
-![Segmentación](SegmentacióndeMercadoSpendigScore.png)
+![Segmentación](images/SegmentacióndeMercadoSpendigScore.png)
 Métricas de Validación:
-![Validación del Modelo K-Means](imágenes/MétricasdeValidación.png)
+![Validación del Modelo K-Means](images/MétricasdeValidación.png)
 
 ## Análisis de segmentos
 
@@ -102,10 +102,10 @@ A partir del modelo de K-Means, se identificaron distintos perfiles de clientes:
 ### Datos procesados
 Se realizó una limpieza y transformación de los datos para asegurar la calidad del análisis, incluyendo selección de variables relevantes y normalización.
 
+Este código asigna a cada cliente un cluster específico que se utiliza para su análisis posterior.
 
 ### Conclusión
-El modelo de segmentación permite identificar patrones de comportamiento en los clientes, facilitando la toma de decisiones estratégicas basadas en datos. La correcta selección de variables y parámetros es fundamental para obtener resultados útiles en un contexto empresarial real.
-
+El modelo de segmentación permite identificar patrones de comportamiento en los clientes, facilitando la toma de decisiones estratégicas basadas en datos. La correcta selección de variables y parámetros es fundamental para obtener resultados útiles en un contexto empresarial real. El uso de técnicas de segmentación como K-Means permite transformar datos en información estratégica para la toma de decisiones empresariales. La correcta selección de variables y parámetros influye directamente en la calidad de los resultados obtenidos.
 
 ## Interpretación de Resultados
 El modelo identifica diferentes perfiles de clientes, como clientes de alto valor, frecuentes, ocasionales y de bajo consumo.
