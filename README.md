@@ -83,9 +83,9 @@ El método del codo permitió identificar el número óptimo de clusters para el
 La gráfica de clusters muestra la distribución de los clientes en distintos grupos, donde cada color representa un segmento diferente. Esto permite visualizar cómo se agrupan los clientes según sus características.
 ![Clusters](images/Clusters.png)
 Segmentación por Spendig Core:
-![Segmentación](images/SegmentacióndeMercadoSpendigScore.png)
+![Segmentación](images/segmentacion.png)
 Métricas de Validación:
-![Validación del Modelo K-Means](images/MétricasdeValidación.png)
+![Validación del Modelo K-Means](images/validacion.png)
 
 ## Análisis de segmentos
 
