@@ -59,21 +59,29 @@ Ejemplo: kmeans = KMeans(n_clusters=5, random_state=42)
 Aplicación de K-Means: Este código entrena el modelo K-Means con 5 clusters: Este código entrena el modelo K-Means y asigna un cluster a cada cliente.
 from sklearn.cluster import KMeans
 
-kmeans = KMeans(n_clusters=5)
+```python
+from sklearn.cluster import KMeans
+
+kmeans = KMeans(n_clusters=5, random_state=42)
 kmeans.fit(X)
 labels = kmeans.labels_
+```
 
 Método del codo:
+```python
 inertia = []
 for k in range(1, 10):
-kmeans = KMeans(n_clusters=k)
-kmeans.fit(X)
-inertia.append(kmeans.inertia_)
+    kmeans = KMeans(n_clusters=k)
+    kmeans.fit(X)
+    inertia.append(kmeans.inertia_)
+```
 
 Visualización:
+```python
 plt.scatter(X_pca[:,0], X_pca[:,1], c=labels)
 plt.title("Segmentación de Clientes")
 plt.show()
+```
 
 ### Resultados
 
