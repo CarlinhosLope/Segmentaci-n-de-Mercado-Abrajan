@@ -92,30 +92,72 @@ El modelo K-Means con K=5 fue validado mediante múltiples métricas estadístic
 Aplicación de K-Means: Este código entrena el modelo K-Means con 5 clusters: Este código entrena el modelo K-Means y asigna un cluster a cada cliente.
 from sklearn.cluster import KMeans
 
+## Ejemplos de Uso
+
+### Ejemplo 1 — Entrenamiento del modelo K-Means
+
+Entrena el modelo con 5 clusters sobre las variables `Annual_Income` y `Spending_Score`.
+El parámetro `random_state=42` garantiza resultados reproducibles.
+
 ```python
 from sklearn.cluster import KMeans
+
+X = df[['Annual_Income', 'Spending_Score']]
 
 kmeans = KMeans(n_clusters=5, random_state=42)
 kmeans.fit(X)
 labels = kmeans.labels_
+
+print(f"Clusters asignados: {set(labels)}")
+# Output: Clusters asignados: {0, 1, 2, 3, 4}
 ```
 
-Método del codo:
+---
+
+### Ejemplo 2 — Método del codo para seleccionar K óptimo
+
+Evalúa la inercia para valores de K entre 1 y 10.
+El punto donde la curva "dobla" indica el número óptimo de clusters.
+
 ```python
+import matplotlib.pyplot as plt
+
 inertia = []
-for k in range(1, 10):
-    kmeans = KMeans(n_clusters=k)
+for k in range(1, 11):
+    kmeans = KMeans(n_clusters=k, random_state=42)
     kmeans.fit(X)
     inertia.append(kmeans.inertia_)
-```
 
-Visualización:
-```python
-plt.scatter(X_pca[:,0], X_pca[:,1], c=labels)
-plt.title("Segmentación de Clientes")
+plt.plot(range(1, 11), inertia, marker='o')
+plt.title('Método del Codo')
+plt.xlabel('Número de Clusters (K)')
+plt.ylabel('Inercia (WCSS)')
 plt.show()
+# Output: Gráfica que muestra K=5 como punto de quiebre óptimo
 ```
 
+---
+
+### Ejemplo 3 — Visualización de segmentos con PCA
+
+Reduce las dimensiones a 2 componentes para graficar los clusters.
+Cada color representa un segmento distinto de clientes.
+
+```python
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+
+plt.figure(figsize=(10, 6))
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=labels, cmap='viridis', alpha=0.5)
+plt.title('Segmentación de Clientes — K-Means (K=5)')
+plt.xlabel('Componente Principal 1')
+plt.ylabel('Componente Principal 2')
+plt.colorbar(label='Cluster')
+plt.show()
+# Output: Gráfica con 5 grupos de colores diferenciados
+```
 ### Resultados
 
 ## Método del codo
