@@ -33,6 +33,7 @@ Segmentacion-de-Mercado-Abrajan/
 ## Requisitos
 - Python 3.8 o superior
 - Jupyter Notebook o Google Colab
+- El archivo requirements.txt contiene todas las dependencias necesarias para ejecutar el proyecto.
 
 ## Instalación
 Instalar dependencias con:
@@ -55,7 +56,7 @@ Ejemplo: kmeans = KMeans(n_clusters=5, random_state=42)
 
 ## Ejemplos de Uso
 
-Aplicación de K-Means: Este código entrena el modelo K-Means con 5 clusters:
+Aplicación de K-Means: Este código entrena el modelo K-Means con 5 clusters: Este código entrena el modelo K-Means y asigna un cluster a cada cliente.
 from sklearn.cluster import KMeans
 
 kmeans = KMeans(n_clusters=5)
@@ -111,6 +112,7 @@ El modelo de segmentación permite identificar patrones de comportamiento en los
 El modelo identifica diferentes perfiles de clientes, como clientes de alto valor, frecuentes, ocasionales y de bajo consumo.
 
 ## Tecnologías Utilizadas
+
 - Python
 - Pandas
 - NumPy
