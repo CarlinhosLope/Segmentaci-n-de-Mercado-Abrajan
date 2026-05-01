@@ -30,6 +30,7 @@ Segmentacion-de-Mercado-Abrajan/
 ├── Segmentación.ipynb
 ├── requirements.txt
 └── README.md
+
 ## Requisitos
 - Python 3.8 o superior
 - Jupyter Notebook o Google Colab
@@ -39,6 +40,7 @@ Segmentacion-de-Mercado-Abrajan/
 Instalar dependencias con:
 pip install pandas numpy matplotlib seaborn scikit-learn o 
 O usando requirements.txt: pip install -r requirements.txt
+
 ## Uso
 1. Clonar el repositorio: git clone https://github.com/tu-usuario/segmentacion-abrajan.git
 2. Entrar al directorio: cd segmentacion-abrajan
@@ -53,6 +55,37 @@ O usando requirements.txt: pip install -r requirements.txt
 - PCA: reduce dimensiones y facilita visualización, pero puede perder información.
 
 Ejemplo: kmeans = KMeans(n_clusters=5, random_state=42)
+## Validación del Modelo
+
+El modelo K-Means con K=5 fue validado mediante múltiples métricas estadísticas aplicadas sobre una muestra de 5,000 registros del dataset completo de 200,000 clientes.
+
+## Métricas de validación
+
+| Métrica | Valor | Interpretación |
+|---|---|---|
+| Silhouette Score | 0.3834 | ⚠️ Moderada — clusters funcionales con traslape natural |
+| Davies-Bouldin Index | 0.8890 | ✅ Excelente — buena separación entre clusters (< 1) |
+| Calinski-Harabasz Score | 4683.71 | ✅ Alto — clusters compactos y bien definidos |
+| Inercia (WCSS) | 85,622.98 | Referencia del método del codo para K=5 |
+
+> **Conclusión:** El modelo es **funcional y estratégicamente interpretable**. El Davies-Bouldin Excelente confirma que los 5 segmentos están bien separados entre sí. El Silhouette moderado es esperado dado que los datos reales de clientes tienen traslape natural entre perfiles.
+
+## Distribución de segmentos (200,000 clientes)
+
+| Cluster | Perfil | Clientes | % del mercado |
+|---|---|---|---|
+| C0 | 🔴 VIP — Alto Ingreso / Alto Gasto | 47,376 | 23.7% |
+| C1 | 🔵 Conservadores — Bajo Ingreso / Bajo Gasto | 34,572 | 17.3% |
+| C2 | 🟢 Moderados — Ingreso Medio / Gasto Medio | 36,063 | 18.0% |
+| C3 | 🟠 Potenciales — Alto Ingreso / Bajo Gasto | 47,745 | 23.9% |
+| C4 | 🟣 Impulsivos — Bajo Ingreso / Alto Gasto | 34,244 | 17.1% |
+
+### Criterios de validación aplicados
+
+1. **Métricas estadísticas** — Silhouette, Davies-Bouldin y Calinski-Harabasz confirman cohesión interna y separación entre grupos.
+2. **Selección de K** — Se compararon valores de K=2 a K=10; K=5 es el punto de equilibrio entre precisión técnica y utilidad estratégica.
+3. **Análisis de centroides** — Los 5 centroides ocupan posiciones claramente diferenciadas en el espacio ingreso-gasto.
+4. **Interpretabilidad estratégica** — Cada cluster tiene un perfil comercial accionable directamente por el área de marketing.
 
 ## Ejemplos de Uso
 
